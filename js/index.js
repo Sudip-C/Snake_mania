@@ -4,7 +4,7 @@ const foodSound = new Audio('./assets/Eat.mp3');
 const gameOverSound= new Audio('./assets/gameover.mp3');
 const moveSound= new Audio('./assets/moving.mp3');
 const bgm=new Audio('./assets/bgm.mp3');
-const speed=15;
+const speed=0.5;
 let lastPaintTime=0;
 let score=0;
 let snakeArr=[
@@ -32,7 +32,7 @@ function isCollide(sarr){
         }  
     }
     // if snake bump into wall 
-    if(sarr[0].x >= 18 || sarr[0].x <=0 && sarr[0].y >= 18 || sarr[0].y <=0){
+    if(sarr[0].x >= 18 || sarr[0].x <=0 || sarr[0].y >= 18 || sarr[0].y <=0){
             return true
         }
 }
@@ -108,11 +108,11 @@ window.addEventListener('keydown',(e)=>{
             inputDir.y=1;
             break;
         case "ArrowRight":
-            inputDir.x=-1;
+            inputDir.x=1;
             inputDir.y=0;
             break;
         case "ArrowLeft":
-            inputDir.x=1;
+            inputDir.x=-1;
             inputDir.y=0;
             break;
             default:
